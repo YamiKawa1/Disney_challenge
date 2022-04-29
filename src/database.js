@@ -3,10 +3,15 @@ import env from './env';
 
 // const sequelize = new Sequelize('sqlite::memory:');
 
-export const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: '../DisneyDB.db'
-  });
+export const sequelize = new Sequelize('disneydb', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql'
+});
+
+// export const sequelize = new Sequelize({
+//     dialect: 'sqlite',
+//     storage: '../DisneyDB.db'
+//   });
 
   const DBWorking = async() => {
     try {

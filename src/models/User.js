@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../database';
 
-export const User = sequelize.define('Users', {
+export const User = sequelize.define('users', {
     // Model attributes are defined here
     id: {
       type: DataTypes.INTEGER,
@@ -20,7 +20,7 @@ export const User = sequelize.define('Users', {
       type: DataTypes.STRING,
       allowNull: false
     },
-    Password: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false
     }

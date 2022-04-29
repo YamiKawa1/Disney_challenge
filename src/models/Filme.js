@@ -5,8 +5,8 @@ export const Filme = sequelize.define('filmes', {
     // Model attributes are defined here
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
+      primaryKey: true
     },
     imagen: {
       type: DataTypes.STRING,
@@ -21,10 +21,10 @@ export const Filme = sequelize.define('filmes', {
       allowNull: false
     },
     calificacion: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
-    personajes: {
+    personaje_: {
       type: DataTypes.STRING,
       allowNull: false
     }
