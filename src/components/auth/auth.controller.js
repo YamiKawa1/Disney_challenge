@@ -10,15 +10,36 @@ export const login = async(req, res) => {
         const{ email, password } = req.body
 
         if (!email || !password) {
-            res.status(400).json({message: 'Faltan campos obligatorios', data: ''})
+            return res.status(400).json({message: 'Faltan campos obligatorios', data: ''})
         }
 
-        // const 
+        const user = await User.findOne( {where: {email: email}} );
 
-        // res.status(400).json({message: 'Faltan campos obligatorios', data: ''})
+        // Verificar que exista el usuario y que su contrasena sea correcta
 
+        if (!user) {
+            return res.status(400).json({message: 'El email es incorrecto', data: ''});
 
+        } else { 
+            const accepted = await comparePassword(password, user.password);
+
+            if (!accepted) {
+                return res.status(400).json({message: 'Contrasena incorrecta', data: ''});
+            }
+
+            const token = jwt.sign({
+                id: user.id, 
+                fullname: user.nombre, }, env.TOKENJWT , {
+                expiresIn: 86400 //24h
+            });
+
+            return res.status(200).json({message: 'Usuario logeado', data: ''});
+
+        }
     } catch (error) {
+        console.log(error);
+
+        res.status(400).json({message: 'Faltan campos obligatorios', data: ''});
         
     }
 }

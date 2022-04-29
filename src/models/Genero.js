@@ -15,10 +15,6 @@ export const Genero = sequelize.define('generos', {
     nombre: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    filmes: {
-      type: DataTypes.STRING,
-      allowNull: false
     }
   }, {
     timestamps: false

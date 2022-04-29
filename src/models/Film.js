@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../database';
 
-export const Filme = sequelize.define('filmes', {
+export const Film = sequelize.define('filmes', {
     // Model attributes are defined here
     id: {
       type: DataTypes.INTEGER,
@@ -22,10 +22,6 @@ export const Filme = sequelize.define('filmes', {
     },
     calificacion: {
       type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    personaje_: {
-      type: DataTypes.STRING,
       allowNull: false
     }
   }, {

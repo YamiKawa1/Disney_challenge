@@ -27,10 +27,6 @@ export const Personaje = sequelize.define('personajes', {
   historia: {
     type: DataTypes.TEXT,
     allowNull: false
-  },
-  filmes: {
-    type: DataTypes.STRING,
-    allowNull: false
   }
 }, {
   timestamps: false

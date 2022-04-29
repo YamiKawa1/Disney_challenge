@@ -3,7 +3,7 @@ import {sequelize} from './database'
 import './models/Personaje'
 import './models/Genero'
 import './models/User'
-import './models/Filme'
+import './models/Film'
 
 
 app.listen(2000, async () => {
