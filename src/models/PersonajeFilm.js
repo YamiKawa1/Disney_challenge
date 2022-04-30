@@ -20,5 +20,5 @@ export const PersonajeFilm = sequelize.define('personaje_film', {
       }
 });
 
-Personaje.belognsToMany(Film, { through: PersonajeFilm})
-Film.belognsToMany(Personaje, { through: PersonajeFilm})
+Personaje.belongsToMany(Film, { through: PersonajeFilm, foreignKey: 'id'})
+Film.belongsToMany(Personaje, { through: PersonajeFilm, foreignKey: 'id'})

@@ -27,3 +27,4 @@ export const Film = sequelize.define('filmes', {
   }, {
     timestamps: false
   });
+

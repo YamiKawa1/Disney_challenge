@@ -33,7 +33,7 @@ export const login = async(req, res) => {
                 expiresIn: 86400 //24h
             });
 
-            return res.status(200).json({message: 'Usuario logeado', data: ''});
+            return res.status(200).json({message: 'Usuario logeado', data: token});
 
         }
     } catch (error) {
