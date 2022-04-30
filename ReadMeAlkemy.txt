@@ -1,0 +1,1 @@
+Trate de hacer esto en 3 dias, y use sequelize por pirmera vez desde hace 1 ano que no lo usaba, tiene muchos errores, pero aun asi lo enviare, tambien lo enviare el mes que viene sin errores XD
