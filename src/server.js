@@ -6,7 +6,7 @@ import './models/User'
 import './models/Film'
 import './models/PersonajeFilm'
 
-// import { createGenre } from './models/Genero';
+import { createGenre } from './models/Genero';
 
 
 app.listen(2000, async () => {

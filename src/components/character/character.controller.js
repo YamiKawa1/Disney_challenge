@@ -51,7 +51,7 @@ export const createCharacter = async(req, res) => {
         films.forEach(async element => {
             let findFilm = await Film.findOne({where: {titulo: element}})
             if (findFilm) {
-                await PersonajeFilm.create({PersonajeId: createdCharacter.id, filmId: findFilm.id})
+                await PersonajeFilm.create({PersonajeId: newCharacter.id, FilmId: findFilm.id})
             }
         });
     }
@@ -85,7 +85,7 @@ export const updateCharacterById = async(req, res) => {
                 if (findFilm) {
                     const alreadyInFilm = await PersonajeFilm.findOne({where: {PersonajeId: id, filmId: findFilm.id}})
                     if (!alreadyInFilm) {
-                        await PersonajeFilm.create({PersonajeId: id, filmId: findFilm.id})
+                        await PersonajeFilm.create({PersonajeId: id, FilmId: findFilm.id})
                     }
             }
         });

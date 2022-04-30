@@ -23,7 +23,8 @@ export const Genero = sequelize.define('generos', {
 
   Genero.hasMany(Film)
 
-   export const createGenre = async() =>{
+  // Funcion para crear generos
+  export const createGenre = async() =>{
     await Genero.create({
       imagen: 'https://cdn.pixabay.com/photo/2021/02/27/13/42/comedy-6054626_960_720.jpg',
       nombre: 'Comedia'

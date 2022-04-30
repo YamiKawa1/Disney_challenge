@@ -4,6 +4,11 @@ import { Personaje } from './Personaje';
 import { Film } from './Film';
 
 export const PersonajeFilm = sequelize.define('personaje_film', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
     PersonajeId: {
         type: DataTypes.INTEGER,
         references: {
