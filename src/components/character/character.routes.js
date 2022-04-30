@@ -7,10 +7,12 @@ router.get('/', characterCtrl.getCharacters);
 
 router.post('/', characterCtrl.createCharacter);
 
+router.get('/filter?', characterCtrl.filterCharacter);
+
 router.patch('/:id', characterCtrl.updateCharacterById);
 
 router.delete('/:id', characterCtrl.deleteCharacterById);
 
-router.get('/:name', characterCtrl.getCharacterByName);
+router.get('/:id', characterCtrl.getCharacterById);
 
 export default router
