@@ -14,13 +14,13 @@ export const getCharacters = async(req, res) => {
     
 }
 
-export const getCharacterByName = async(req, res) => {
+export const getCharacterById = async(req, res) => {
     try {
-        const {name} = req.params;
+        const {id} = req.params;
 
-        const personaje = await Personaje.findOne({where: {nombre: name}, include: Film});
+        const personaje = await Personaje.findOne({where: {id: id}, include: Film});
     
-        return res.status(200).json({message: `${name} Ha sido encontrado`, data: personaje});
+        return res.status(200).json({message: `${personaje.nombre} Ha sido encontrado`, data: personaje});
     } catch (error) {
         console.log(error);
         return res.status(400).json({message: 'ha habido un error interno', data: ''});
@@ -114,14 +114,32 @@ export const deleteCharacterById = async(req, res) => {
 }
 
 export const filterCharacter = async(req, res) => {
-    const {nombre, peso, edad, series} = req.query
-    
-    switch (key) {
-        case value:
-            
-            break;
-    
-        default:
-            break;
+    try {
+        const {nombre, peso, edad, films} = req.query
+        
+        console.log(req.query);
+    if (nombre) {
+        const filter = await Personaje.findAll({where: {nombre: nombre}, include: Film});
+        console.log('enter here');
+        return res.status(200).json({message: 'Filtro', data: filter});
     }
+    if (peso) {
+        const filter = await Personaje.findAll({where: {peso: peso}, include: Film});
+        return res.status(200).json({message: 'Filtro', data: filter});
+    }
+    if (edad) {
+        const filter = await Personaje.findAll({where: {edad: edad}, include: Film});
+        return res.status(200).json({message: 'Filtro', data: filter});
+    }
+    if (films) {
+        const filter = await Personaje.findAll({where: {Film: films}, include: Film});
+        return res.status(200).json({message: 'Filtro', data: filter});
+    }
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({message: 'error interno', data: ''});
+    }
+    
+
+    
 }
